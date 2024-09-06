@@ -1,15 +1,22 @@
-<body>
-    <div>
-        <script>
-            function NewClass(title, url) {
-                this.title = title;
-                this.url = url;
-                this.show = function(){document.write("NewClass object.\nTitle: " + this.title + ";\n URL: " + this.url + "\n");}
-            }
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>Практика 1 - 4</title>
+    </head>
+    <body>
+        <div>
+            <script>
+                function NewClass(title, url) {
+                    "use strict";
+                    this.title = title;
+                    this.url = url;
+                    this.show = function(){document.write("NewClass object.\nTitle: " + this.title + ";\n URL: " + this.url + "\n");}
+                }
+                    
+                var Test= new NewClass("VK", "vk.com");
+                Test.show();
                 
-            var Test= new NewClass("VK", "vk.com");
-            Test.show();
-            
-        </script>
-    </div>
-</body>
+            </script>
+        </div>
+    </body>
+</html>
