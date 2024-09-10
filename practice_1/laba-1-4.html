@@ -6,15 +6,17 @@
     <body>
         <div>
             <script>
-                function NewClass(title, url) {
-                    "use strict";
-                    this.title = title;
-                    this.url = url;
-                    this.show = function(){document.write("NewClass object.\nTitle: " + this.title + ";\n URL: " + this.url + "\n");}
-                }
-                    
-                var Test= new NewClass("VK", "vk.com");
-                Test.show();
+                (function () {
+                    function NewClass(title, url) {
+                        "use strict";
+                        this.title = title;
+                        this.url = url;
+                        this.show = function(){document.write("NewClass object.\nTitle: " + this.title + ";\n URL: " + this.url + "\n");}
+                    }
+                        
+                    var Test= new NewClass("VK", "vk.com");
+                    Test.show();
+                }());
                 
             </script>
         </div>
