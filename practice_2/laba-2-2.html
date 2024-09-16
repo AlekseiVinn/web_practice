@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Практика 2 - 2</title>
+        <script defer>
+            window.onload = (function(){
+
+                var change = document.getElementById("change");
+                
+                change.onmouseover = function () {
+                    "use strict";
+                    this.style.fontSize = '18px';
+                    this.style.color = 'rgb(214, 122, 127)';
+                    this.style.textDecoration = 'underline';
+                    this.style.fontWeight = 'bold';
+                };
+
+                change.onmouseout =  function () {
+                    "use strict";
+                    this.style.fontSize = '12px';
+                    this.style.color = 'rgb(0, 0, 0)';
+                    this.style.textDecoration = 'none';
+                    this.style.fontWeight = 'normal';
+                };
+            });
+        </script>
+    </head>
+
+    <body>
+        <div>
+            <a id="change" style="font-size: 12px; color: #000;" >Change Style</a>
+        </div>
+    </body>
+</html>

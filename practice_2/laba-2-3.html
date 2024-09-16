@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Практика 2 - 3</title>
+        <script defer>
+            window.onload = (function(){
+                "use strict";
+                var newWindowBtn = document.getElementById("newWindowBtn");
+                newWindowBtn.onclick = (function(){
+                    "use strict";
+                    window.open("", "_blank", "popup=yes, width=300, height=400, menubar=yes, location=yes, titlebar=yes, scrollbars=yes, status=yes, toolbar=yes, resizable=yes" );
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+        <div>
+            <a href="" id="newWindowBtn">Новое окно</a>
+        </div>
+    </body>
+</html>
