@@ -8,7 +8,9 @@
                 var newWindowBtn = document.getElementById("newWindowBtn");
                 newWindowBtn.onclick = (function(){
                     "use strict";
-                    window.open("", "_blank", "popup=yes, width=300, height=400, menubar=yes, location=yes, titlebar=yes, scrollbars=yes, status=yes, toolbar=yes, resizable=yes" );
+                    window.open("", "_blank", "width=300, height=400, "
+                                 +"location=yes, menubar=yes, resizable=yes, status=yes, "
+                                 +"titlebar=yes" );
                 });
             });
         </script>
