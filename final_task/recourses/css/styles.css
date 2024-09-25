@@ -1,0 +1,99 @@
+header{
+            font: bold 20pt helvetica, arial, sans-serif;
+            background-color: #a0a370;
+            color: #33351f;
+            height: 11vh
+        }
+
+        nav {
+            padding: 35px;
+        }
+
+        #menu{
+            list-style: none;
+            color: #555;
+            position: relative;
+            padding-left: 80px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            line-height: 2;
+        }
+
+        h2 {
+            font: bold 20pt helvetica, arial, sans-serif;
+            padding-left: 30px;
+            color: #555;
+        }
+        
+        h3 {
+            font: bold 16pt helvetica, arial, sans-serif;
+            padding-left: 50px;
+            color: #555;
+        }
+
+        li a {
+        font: bold 16pt helvetica, arial, sans-serif;
+        color: #555;
+        
+        }
+
+        embed#icon{
+            scale: 0.4;
+        }
+
+        td{
+            max-width: 400px;
+            overflow-x: hidden;
+        }
+
+        footer{
+            flex-shrink: 0;
+            background-color: rgba(187, 183, 133, 0.588);
+            font: bold 11pt helvetica, arial, sans-serif;
+        }
+
+        body {
+            margin: 15;
+            color: #661212;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main, table {
+            flex-grow: 1;
+        }
+
+        .Toolbar {
+            float: left;
+            font-family: 'Trebuchet MS'; 
+            font-size: 14px;
+            font-variant: small-caps;
+            
+            text-align: center;
+            background: #F2F7FE;
+            padding: 10px 15px 3px 10px;
+            margin: 1vh;
+            border: 1px solid #7B899B;
+        }
+
+        .Toolbar button {
+            padding: 6px;
+            margin: 7px 2px;
+            font-variant: normal;
+            font-size: 12px;
+        }
+
+        .CanvasContainer {
+            clear: both;
+        }
+
+        canvas, form {
+            border: 3px solid #7B899B;
+        }
+
+        form{
+            padding-left: 20px;
+            color: #2b1717;
+        }
+

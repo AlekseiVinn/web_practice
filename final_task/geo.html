@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Were am I</title>
+    <link rel="stylesheet" href="recourses/css/styles.css">
+    <script src="https://api-maps.yandex.ru/2.0-stable/?apikey=2de463f3-1086-41b8-a5c7-d30e01cefbb0&load=package.full&lang=ru-RU" type="text/javascript"></script>
+    <script>
+        (function(){
+            window.onload = (function(){
+                "use strict";
+                var myMap;
+                ymaps.ready(function() {
+                    myMap = new ymaps.Map("myMap", {
+                    center: [ymaps.geolocation.latitude, ymaps.geolocation.longitude],
+                    zoom: 5
+                    });
+                    
+                });
+
+                var myMark = new ymaps.Placemark([ymaps.geolocation.latitude, ymaps.geolocation.longitude],
+                    {balloonContent: 'Вы же здесь сейчас?'});
+                
+                myMap.geoObjects.add(myMark);
+
+                const geoBtn = document.getElementById("geoBtn");
+                const result = document.getElementById("result");
+                geoBtn.onclick = (function(){
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(showPosition, showError);
+                    } else { 
+                        result.textContent = "Geolocation is not supported by this browser.";
+                    }
+
+                    function showPosition(position) {
+                        var lat = position.coords.latitude;
+                        var lon = position.coords.longitude;
+                        result.textContent = "\tLatitude: " + position.coords.latitude + ";\tLongitude: " + position.coords.longitude;
+                    }
+
+                    function showError(error) {
+                        switch(error.code) {
+                            case error.PERMISSION_DENIED:
+                            result.textContent = "User denied the request for Geolocation.";
+                            break;
+                            case error.POSITION_UNAVAILABLE:
+                            result.textContent = "Location information is unavailable.";
+                            break;
+                            case error.TIMEOUT:
+                            result.textContent = "The request to get user location timed out.";
+                            break;
+                            case error.UNKNOWN_ERROR:
+                            result.textContent = "An unknown error occurred.";
+                            break;
+                        }                 
+                    } 
+                });
+            });
+        }());
+    </script>
+</head>
+
+<body>
+    
+    <header>
+        <nav class = "header">
+            <a href="index.html">Главная</a>
+            <a href="geo.html">Геолокация</a>
+            <a href="music.html">Музыка</a>
+            <a href="draw.html">Рисование</a>
+            <a href="card.html">Создание визитки</a>
+        </nav>
+    </header>
+
+
+    <main>
+        <div>
+            <br><input type="button" value="Узнать местоположение по Geolocation API" id="geoBtn"><label id="result"></label><br><br>
+            
+
+        <div>
+        <div id="myMap" style="width: 800px; height: 600px"></div>
+    </main>
+
+    <footer>
+        <table>
+            <tr>
+                <td>
+                    <embed id="icon" src="recourses/img/github-mark.svg">
+                </td>
+                <td>
+                    <a href="https://github.com/AlekseiVinn/web_practice">Винников А.А., Университет ИТМО.</a>
+                </td>
+            </tr>
+        </table>
+    </footer>
+	
+</body>
+</html>

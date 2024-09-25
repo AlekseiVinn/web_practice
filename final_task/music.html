@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Музыкальный проигрыватель</title>
+    <link rel="stylesheet" href="recourses/css/styles.css">
+    <script>
+        (function(){
+            window.onload = function(){
+
+            };
+        }());
+    </script>
+</head>
+
+<body>
+    <header>
+        <nav class = "header">
+            <a href="index.html">Главная</a>
+            <a href="geo.html">Геолокация</a>
+            <a href="music.html">Музыка</a>
+            <a href="draw.html">Рисование</a>
+            <a href="card.html">Создание визитки</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Music Player</h1>
+      
+        <table>
+            <tr>
+                <td>
+                    <a class="track-name" href="https://www.chosic.com/download-audio/45508/" 
+                    title="Credits: Colorful Flowers by Tokyo Music Walker | https://soundcloud.com/user-356546060 Music promoted by https://www.chosic.com/free-music/all/ Creative Commons CC BY 3.0 https://creativecommons.org/licenses/by/3.0/"
+                    >Colorful Flowers by Tokyo Music Walker</a>
+                </td>
+                <td>
+                    <audio id="audio1" controls>
+                        <source src="recourses/music/Colorful-Flowers(chosic.com).mp3" type="audio/mpeg">
+                    </audio>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a class="track-name" href="https://www.chosic.com/download-audio/45508/" 
+                    title="Credits: Purple Dream by Ghostrifter bit.ly/ghostrifter-yt Creative Commons — Attribution-NoDerivs 3.0 Unported — CC BY-ND 3.0 Music promoted by https://www.chosic.com/free-music/all/"
+                    >Purple Dream by Ghostrifter Official</a>
+                </td>
+                <td>
+                    <audio id="audio2" controls>
+                        <source src="recourses/music/Ghostrifter-Official-Purple-Dream(chosic.com).mp3" type="audio/mpeg">
+                    </audio>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a class="track-name" href="https://www.chosic.com/download-audio/27281/" 
+                    title="Credits: Warm Memories - Emotional Inspiring Piano by Keys of Moon | https://soundcloud.com/keysofmoon Attribution 4.0 International (CC BY 4.0) https://creativecommons.org/licenses/by/4.0/ Music promoted by https://www.chosic.com/free-music/all/"
+                    >Warm Memories – Emotional Inspiring Piano by Keys of Moon</a>
+                </td>
+                <td>
+                    <audio id="audio3" controls>
+                        <source src="recourses/music/Warm-Memories-Emotional-Inspiring-Piano(chosic.com).mp3" type="audio/mpeg">
+                    </audio>
+                </td>
+            </tr>
+        </table>
+                   
+    </main>
+
+    <footer>
+        <table>
+            <tr>
+                <td>
+                    <embed id="icon" src="recourses/img/github-mark.svg">
+                </td>
+                <td>
+                    <a href="https://github.com/AlekseiVinn/web_practice">Винников А.А., Университет ИТМО.</a>
+                </td>
+            </tr>
+        </table>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Final Task - Drawing with Canvas</title>
+    <link rel="stylesheet" href="recourses/css/styles.css">
+    <script>
+        (function(){
+            window.onload = (function(){
+                const canvas = document.getElementById("drawingCanvas");
+                const colorPick = document.getElementById("colorPick");
+                const clearBtn = document.getElementById("clearBtn");
+                const thickPick = document.getElementById("thickPick");
+                sessionStorage.setItem("flag", "0");
+                
+                if(canvas) {
+                    const context = canvas.getContext("2d");
+                    
+                    if (colorPick) { 
+                        context.strokeStyle = colorPick.value;
+                        
+                        colorPick.addEventListener("change", (function(){
+                            context.strokeStyle = this.value;
+                        }));
+                    }
+
+                    if (thickPick) { 
+                        context.lineWidth = thickPick.value;
+                        
+                        thickPick.addEventListener("change", (function(){
+                            context.lineWidth = this.value;
+                        }));
+                    }
+
+                    if (clearBtn) {
+                        clearBtn.addEventListener("click", (function(){
+                            context.clearRect(0, 0, canvas.width, canvas.height);
+                        }));
+
+                    }
+
+                    canvas.addEventListener('mousedown', startDrawing);
+                    canvas.addEventListener('mousemove', Draw);
+                    canvas.addEventListener('mouseup', stopDrawing);
+                    canvas.addEventListener('mouseout', stopDrawing);
+
+
+                    function startDrawing(e) {
+                        sessionStorage.setItem("flag", "1");
+                        context.beginPath();
+                        context.moveTo(e.pageX - canvas.offsetLeft, e.pageY - canvas.offsetTop);
+
+                    }
+                    function Draw(e) {
+                        if (sessionStorage.getItem("flag") == "1") {
+                            var x = e.pageX - canvas.offsetLeft;
+                            var y = e.pageY - canvas.offsetTop;
+                            context.lineTo(x, y);
+                            context.stroke();
+                        }
+                    }
+
+                    function stopDrawing() {
+                        sessionStorage.setItem("flag", "0");
+                    }
+                }
+            });
+        }());
+    </script>
+</head>
+
+<body>
+    <header>
+        <nav class = "header">
+            <a href="index.html">Главная</a>
+            <a href="geo.html">Геолокация</a>
+            <a href="music.html">Музыка</a>
+            <a href="draw.html">Рисование</a>
+            <a href="card.html">Создание визитки</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="Toolbar">
+            - Цвет -<br>
+            <img id="redPen" src="http://professorweb.ru/downloads/pen_red.gif" width="30px">
+            <input type="color" id="colorPick" value="#0000"><br><br>
+        </div>
+        <div class="Toolbar">
+            - Толщина -<br>
+            <img src="http://professorweb.ru/downloads/pen_medium.gif" width="30px"> 
+            <input type="number" id="thickPick" value="5" min="1" max="50"><br><br>
+        </div>
+        <div class="Toolbar">
+            - Очистка -<br><br>
+            <button id="clearBtn">Очистить холст</button>
+        </div>
+    
+        <div class="CanvasContainer">
+            <canvas id="drawingCanvas" width="800" height="600"></canvas>
+        </div>
+    </main>
+
+    
+
+    <footer>
+        <table>
+            <tr>
+                <td>
+                    <embed id="icon" src="recourses/img/github-mark.svg">
+                </td>
+                <td>
+                    <a href="https://github.com/AlekseiVinn/web_practice">Винников А.А., Университет ИТМО.</a>
+                </td>
+            </tr>
+        </table>
+    </footer>
+	
+</body>
+</html>

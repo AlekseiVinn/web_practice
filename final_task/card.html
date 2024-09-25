@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Final Task - Drawing with Canvas</title>
+    <link rel="stylesheet" href="recourses/css/styles.css">
+    <script>
+        (function(){
+            window.onload = (function(){
+                const cardForm = document.getElementById("card");
+                const name = cardForm.elements["name"];
+                const position = cardForm.elements["position"];
+                const firm = cardForm.elements["firm"];
+                const tel = cardForm.elements["tel"];
+                const email = cardForm.elements["email"];
+                const url = cardForm.elements["url"];
+                const fonts = cardForm.elements["fonts"];
+                const colors = cardForm.elements["colors"];
+               
+                if(cardForm && name && position && firm && tel && email && url && fonts && colors) {
+
+                    (function loadStored(){
+                        name.value = localStorage.getItem("name") ? localStorage.getItem("name") : "";
+                        position.value = localStorage.getItem("position") ? localStorage.getItem("position") : "";
+                        firm.value = localStorage.getItem("firm") ? localStorage.getItem("firm") : "";
+                        tel.value = localStorage.getItem("tel") ? localStorage.getItem("tel") : "";
+                        email.value = localStorage.getItem("email") ? localStorage.getItem("email") : "";
+                        url.value = localStorage.getItem("url") ? localStorage.getItem("url") : "";
+                        fonts.value = localStorage.getItem("fonts") ? localStorage.getItem("fonts") : "";
+                        colors.value = localStorage.getItem("colors") ? localStorage.getItem("colors") : "#FFFFFF";
+                    }());
+
+                    cardForm.addEventListener('submit', function(event){
+                        alert("Просим прощения, функционал пока недоступен, попробуйте позже");
+                        event.preventDefault();
+                    });
+
+                    cardForm.addEventListener("change", function(event){
+                        localStorage.setItem("name", name.value);
+                        localStorage.setItem("position", position.value);
+                        localStorage.setItem("firm", firm.value);
+                        localStorage.setItem("tel", tel.value);
+                        localStorage.setItem("email", email.value);
+                        localStorage.setItem("url",url.value);
+                        localStorage.setItem("fonts", fonts.value);
+                        localStorage.setItem("colors", colors.value);
+                    })
+                } else {
+                    console.log("All is bad");
+                }
+            });
+        }());
+    </script>
+</head>
+
+<body>
+    <header>
+        <nav class = "header">
+            <a href="index.html">Главная</a>
+            <a href="geo.html">Геолокация</a>
+            <a href="music.html">Музыка</a>
+            <a href="draw.html">Рисование</a>
+            <a href="card.html">Создание визитки</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Создайте себе визитку</h1>
+        <form id="card">
+            <p><label for="name">Введите ФИО: 
+                <input type="text" name="name" autofocus="autofocus" pattern="\p{L}+" minlength="6" maxlength="50"
+                    required="required">
+            </label></p>
+
+            <p><label for="position">Введите должность: 
+                <input type="text" name="position" pattern="\p{L}+" maxlength="50">
+            </label></p>
+
+            <p><label for="firm">Введите название организации: 
+                <input type="text" name="firm" maxlength="50">
+            </label></p>
+
+            <p><label for="firm">Укажите контактный телефон: 
+                <input type="tel" name="tel" maxlength="10">
+            </label></p>
+
+            <p><label for="firm">Укажите адрес электронной почты: 
+                <input type="email" name="email">
+            </label></p>
+
+            <p><label for="firm">Укажите ссылку на сайт: 
+                <input type="url" name="url">
+            </label></p>
+
+            <p><label for="fonts">Выберите шрифт для визитки:
+                <input list="fonts-choice" name="fonts" id="fonts" required></label>
+                <datalist id="fonts-choice">
+                    <option value="Skramp Cyr"></option>
+                    <option value="Dragonell"></option>
+                    <option value="Seravek"></option>
+                    <option value="Shorai Sans"></option>
+                    <option value="CoFo Gothic Variable"></option>
+                </datalist>
+            </p>
+
+            <p><label for="colors">Выберите цвет визитки:
+                <input type="color" name="colors" id="colors"></label>
+            </p>
+
+            <p><label><input type="submit" value="Отправить в печать"></label></p>
+        </form>
+    </main>
+
+    
+
+    <footer>
+        <table>
+            <tr>
+                <td>
+                    <embed id="icon" src="recourses/img/github-mark.svg">
+                </td>
+                <td>
+                    <a href="https://github.com/AlekseiVinn/web_practice">Винников А.А., Университет ИТМО.</a>
+                </td>
+            </tr>
+        </table>
+    </footer>
+	
+</body>
+</html>
